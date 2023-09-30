@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GithubService } from './github.service';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+  datos: any;
+
+  constructor(private githubService: GithubService) { }
+
+  ngOnInit(): void {
+    this.githubService.getDatos().subscribe((data) => {
+      this.datos = data;
+
+    });
+  }
+
 }

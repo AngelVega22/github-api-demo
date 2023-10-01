@@ -8,13 +8,13 @@ import { GithubService } from './github.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  datos: any;
+  commitData: any;
 
   constructor(private githubService: GithubService) { }
 
   ngOnInit(): void {
     this.githubService.getDatos().subscribe((data) => {
-      this.datos = data;
+      this.commitData = data;
 
     });
   }

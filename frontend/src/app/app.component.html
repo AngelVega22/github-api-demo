@@ -26,31 +26,24 @@
       </div>
       <div class="text-center">
         <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl">Git commits</h1>
-        <div class="mt-10 flex items-center justify-center gap-x-6">
 
-          <ul role="list" class="divide-y divide-gray-100">
+        <ul role="list" class="divide-y divide-gray-100">
+          <li class="flex justify-between gap-x-6 py-5" *ngFor="let dato of datos">
+            <div class="flex min-w-0 gap-x-4">
+              <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="{{ dato.committer.avatar_url }}" alt="">
+              <div class="min-w-0 flex-auto">
 
+                <p class="text-sm font-semibold leading-6 text-gray-900">"{{ dato.commit.message }}"</p>
+                <p class="mt-1 truncate text-xs leading-5 text-gray-500">commit</p>
 
-            <li class="flex justify-between gap-x-6 py-5" *ngFor="let dato of datos">
-              <div class="flex min-w-0 gap-x-4">
-                <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="{{ dato.committer.avatar_url }}" alt="">
-
-                <div class="min-w-0 flex-auto">
-                  <p class="text-sm font-semibold leading-6 text-gray-900">"{{ dato.commit.message }}"</p>
-                  <p class="mt-1 truncate text-xs leading-5 text-gray-500">{{ dato.commit.author.email }}</p>
-                </div>
               </div>
-              <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                <p class="text-sm leading-6 text-gray-900">Fullstack developer</p>
-                <p class="mt-1 text-xs leading-5 text-gray-500">{{ dato.committer.login }}</p>
-              </div>
-            </li>
-
-          </ul>
-
-
-
-        </div>
+            </div>
+            <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+              <p class="text-sm leading-6 text-gray-900">Fullstack developer</p>
+              <p class="mt-1 text-xs leading-5 text-gray-500">{{ dato.committer.login }}</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
     <div
